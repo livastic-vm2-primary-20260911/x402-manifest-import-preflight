@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Validate x402 paid-resource manifests locally: broken payment rails, missing recipients, 123-resource / 492-accept catalog capacity, before import. No wallet, upload, analytics or tracking.">
+<meta name="theme-color" content="#0f182a">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+<title>ManifestScope — x402 catalog preflight without uploading</title>
+<link rel="stylesheet" href="./style.css">
+<link rel="canonical" href="https://livastic-vm2-primary-20260911.github.io/x402-manifest-import-preflight/">
+</head>
+<body>
+<header class="topbar"><a href="./" class="brand" aria-label="ManifestScope homepage"><span class="glyph">///</span> MANIFESTSCOPE</a><span class="label">x402 • LOCAL FIRST • FREE</span></header>
+<main>
+<section class="hero"><div class="eyebrow">A PRE-FLIGHT CHECK FOR PAID API PUBLISHERS</div>
+<h1>Will your x402 catalog <em>survive import?</em></h1>
+<p class="lede">Check resource URLs, payment rails, recipients, and import-scale risk <strong>entirely inside your browser</strong>. Built in response to a real 123-resource / 492-payment-entry registry failure. This is a diagnostic aid, not a settlement certification.</p>
+<div class="actions"><a class="textlink" href="https://github.com/SaylorInnovations/open-x402-bazaar/issues/5" target="_blank" rel="noopener noreferrer">Original independent bug report ↗</a><a class="textlink" href="https://github.com/SaylorInnovations/open-x402-bazaar/pull/6" target="_blank" rel="noopener noreferrer">Proposed atomic database fix ↗</a></div>
+</section>
+
+<section class="workspace" aria-label="Free local validator">
+<div class="headrow"><div><span class="overline">01 / IMMEDIATE VALUE</span><h2>Inspect a manifest</h2></div><span class="safe">No server upload. No wallet connect.</span></div>
+<div class="hint">Paste a public <code>/.well-known/x402.json</code>, or choose a local JSON file. Do not enter keys, personal financial exports, paid signatures, or private API responses.</div>
+<label class="filebox">Choose local JSON file (maximum 1.5 MB) <input type="file" id="file" accept=".json,application/json,text/plain"></label>
+<label class="txtlabel" for="source">Public manifest JSON</label>
+<textarea id="source" spellcheck="false" maxlength="1500000" placeholder='{"x402Version":2,"resources":[{"url":"https://example.org/fictional","accepts":[{"scheme":"exact","network":"eip155:8453","payTo":"0x...","asset":"0x...","amount":"5000"}]}]}'></textarea>
+<div class="buttons"><button id="analyze" class="btn" type="button">Analyze locally →</button><button id="sample" class="btn ghost" type="button">Load fully fictional 123 / 492 sample</button><button id="clear" class="btn ghost" type="button">Clear</button></div>
+<div id="error" class="error" role="alert" hidden></div>
+<section id="result" aria-live="polite" hidden>
+<div class="resulttop"><h3 id="verdict"></h3><button class="btn ghost" type="button" id="download">Download local JSON report ↓</button></div>
+<div class="metrics"><div><span id="resourcesCount">—</span><small>Resources</small></div><div><span id="railsCount">—</span><small>Payment entries</small></div><div><span id="errorsCount">—</span><small>Errors</small></div><div><span id="warningsCount">—</span><small>Warnings</small></div></div>
+<p id="networks"></p><p id="estimated"></p>
+<ol id="findings"></ol><p id="truncated"></p>
+</section>
+</section>
+
+<section class="split"><article><span class="overline">02 / WHAT IT CAN TELL YOU</span><h2>Catch painful defects before launch.</h2><p>Missing payment recipients, malformed URLs, absent chain IDs, duplicate resource URLs, questionable amount formats and catalogs large enough to merit registry write-load tests.</p><p><strong>A green report is not a valid transaction.</strong> Wallet ownership, token contracts, signatures, settlement finality, access rights, and database-side constraints require separate checks.</p></article><article><span class="overline">03 / ACTUAL CUSTOMER PATH</span><h2>Need a second set of eyes?</h2><p>Optional <strong>19 native Circle USDC (Base)</strong> fixed-scope manual, AI-assisted manifest import / payment-header evidence review. Example deliverable: one written reproduction, a redacted issues list, and an actionable repair suggestion using public or fictional fixtures.</p><p>No prepayment is requested on this page. A genuine buyer and the operator must first agree in writing on scope, access, price, timeline, acceptance and refund terms, and verify the correct token, network and receiving address.</p><div class="actions"><a class="btn linkbtn" href="https://docs.google.com/forms/d/e/1FAIpQLSe_N8anCGUDmWdNZLnGwFRfhYaaCsB18BKdYd_VsFZp1xWm3g/viewform" target="_blank" rel="noopener noreferrer">Request voluntary 19 USDC review ↗</a><a class="textlink" href="mailto:onecursor1@gmail.com?subject=x402%20Manifest%20QA%20%E2%80%94%20public%20fixture%20only">Email inquiry instead ↗</a></div><p class="fine">On the separate Google form, begin your problem description with “x402 manifest QA 19 USDC” so the single owner can route it. Google independently processes information you choose to submit. No real customer records or private manifest are needed.</p></article></section>
+
+<section class="notes"><h2>What caused the real 123 / 492 failure?</h2><p>One public importer prepared hundreds of individual SQL statements and issued an unbounded batch, then failed with <code>D1_ERROR: too many SQL variables</code>. The provider’s manifest itself was legitimate. The open source fix in PR #6 uses parameterized, set-based inserts and atomic replacement; it is pending maintainer review and production verification. This free tool highlights the operational scale risk, but cannot certify a particular database deployment.</p><p class="fine">This page has no analytics, ads, cookies, application server, remote API calls, blockchain wallet, or auto-payments. Structural checks are informative, not security auditing, accounting advice, financial advice, or a guarantee of profitability. AI assistance disclosed; human developer review and real payment are separately required for contracted work.</p></section>
+</main>
+<footer><span>ManifestScope · One Cursor · 2026</span><a href="https://github.com/livastic-vm2-primary-20260911/x402-manifest-import-preflight" target="_blank" rel="noopener noreferrer">Open-source implementation ↗</a><span>Independent tool — not affiliated with x402 Foundation or registry maintainers.</span></footer>
+<script type="module" src="./app.mjs"></script>
+</body></html>
