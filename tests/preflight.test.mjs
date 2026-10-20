@@ -41,5 +41,6 @@ test('HTML disables outbound requests for editor content', async()=>{
  assert.ok(html.includes("connect-src 'none'"));
  assert.ok(html.includes('No server upload.'));
  assert.ok(html.includes('x402 manifest QA 19 USDC'));
+ assert.ok(html.includes('https://livastic-vm3-primary-tmp-260920.github.io/x402-contract-check/'));
  assert.ok(!html.includes('window.ethereum'));
 });

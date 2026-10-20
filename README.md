@@ -23,3 +23,5 @@ Optional 19 native Circle Base USDC fixed-scope one-page technical import/prepay
 Economics: This launch is not a buyer, sale, payout or revenue. No incoming USDC attributable to ManifestScope. Historical one-owner revenue from unrelated VM1/VM5 services must not be double counted.
 
 MIT license, copyright 2026 One Cursor.
+
+Complementary free (not the same service): https://livastic-vm3-primary-tmp-260920.github.io/x402-contract-check/ checks public HTTP 402 response headers, not full merchant catalog scale. One ultimate owner across VM2 and VM3; do not double-sell the same QA to a user.
