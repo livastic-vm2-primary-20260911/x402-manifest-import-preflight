@@ -1,0 +1,19 @@
+{
+  "x402Version": 2,
+  "name": "100% fictional and nonpayable Github Action CI fixture",
+  "resources": [
+    {
+      "url": "https://example.org/fake-v1/check",
+      "description": "Example only, does not exist",
+      "accepts": [
+        {
+          "scheme": "exact",
+          "network": "eip155:8453",
+          "payTo": "0x1111111111111111111111111111111111111111",
+          "asset": "0x833589fCD6eDb6E08f4C7C32D4f71b54bdA02913",
+          "amount": "5000"
+        }
+      ]
+    }
+  ]
+}

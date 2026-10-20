@@ -1,0 +1,53 @@
+name: 'ManifestScope public developer feedback'
+description: 'Report a concrete x402 manifest validation issue or suggest a missing check (public example only; no secrets).'
+title: '[Feedback] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is public. Do not include private manifest URLs, credentials, wallet seeds, payment signatures, customer records, access tokens, or other confidential details.
+        Please use a wholly fictional or intentionally public source if a reproduction is needed.
+  - type: dropdown
+    id: usage
+    attributes:
+      label: Which mode did you try?
+      options:
+        - Browser-local web validator
+        - Offline CLI
+        - GitHub Action
+        - I have not used it yet
+    validations:
+      required: true
+  - type: textarea
+    id: pain
+    attributes:
+      label: What concrete problem are you trying to solve?
+      description: Describe the exact rule gap or UX friction, with a fictional example if useful.
+      placeholder: An example manifest with 200 resources causes my own importer to fail. The free checker only shows a size warning.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What result would actually help you?
+      description: Explain a useful test, message, format, or failure condition. No financial promises.
+    validations:
+      required: true
+  - type: dropdown
+    id: price
+    attributes:
+      label: Would a separate manual technical review be useful? (Nonbinding)
+      options:
+        - No, free tooling is enough
+        - Maybe, ask me about scope first
+        - A fixed 19 USDC public-manifest technical review could be relevant
+        - Prefer not to say
+    validations:
+      required: false
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public data confirmation
+      options:
+        - label: I have not pasted private keys, wallet recovery phrases, paid signatures, customer data, or secrets into this issue.
+          required: true

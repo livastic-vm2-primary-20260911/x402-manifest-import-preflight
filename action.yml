@@ -1,0 +1,24 @@
+name: 'ManifestScope x402 catalog preflight'
+description: 'Offline, zero-wallet, zero-network structural checks for a local x402 manifest; warns about large importer batches.'
+author: 'One Cursor (AI-assisted)'
+inputs:
+  manifest:
+    description: 'Path to a local x402 JSON manifest, relative to the checked-out repository.'
+    required: false
+    default: '.well-known/x402.json'
+  strict-warnings:
+    description: 'When true, fail CI on structural warnings as well as errors. Large-batch INFO does not cause failure.'
+    required: false
+    default: 'false'
+runs:
+  using: 'composite'
+  steps:
+    - name: Inspect local x402 merchant manifest (no network, wallet or token)
+      shell: bash
+      env:
+        MANIFEST_PATH: ${{ inputs.manifest }}
+        MANIFESTSCOPE_STRICT_WARNINGS: ${{ inputs.strict-warnings }}
+      run: node "$GITHUB_ACTION_PATH/cli.mjs" "$MANIFEST_PATH"
+branding:
+  icon: 'check-square'
+  color: 'blue'

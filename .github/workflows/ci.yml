@@ -1,0 +1,21 @@
+name: 'ManifestScope source and action tests'
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  offline-preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - name: Exercise this composite action on a 100% fictional local fixture
+        uses: ./
+        with:
+          manifest: fixtures/example.json
+          strict-warnings: 'true'

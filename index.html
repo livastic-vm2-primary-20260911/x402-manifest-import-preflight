@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Validate x402 paid-resource manifests locally: broken payment rails, missing recipients, 123-resource / 492-accept catalog capacity, before import. No wallet, upload, analytics or tracking.">
+<meta name="description" content="Free browser, offline CLI and GitHub Actions x402 manifest checks. Catch structural payment-rail errors and large 123-resource/492-accept registry import risks without uploads or wallets.">
 <meta name="theme-color" content="#0f182a">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
 <title>ManifestScope — x402 catalog preflight without uploading</title>
@@ -36,6 +36,25 @@
 </section>
 
 <section class="split"><article><span class="overline">02 / WHAT IT CAN TELL YOU</span><h2>Catch painful defects before launch.</h2><p>Missing payment recipients, malformed URLs, absent chain IDs, duplicate resource URLs, questionable amount formats and catalogs large enough to merit registry write-load tests.</p><p><strong>A green report is not a valid transaction.</strong> Wallet ownership, token contracts, signatures, settlement finality, access rights, and database-side constraints require separate checks.</p></article><article><span class="overline">03 / ACTUAL CUSTOMER PATH</span><h2>Need a second set of eyes?</h2><p>Optional <strong>19 native Circle USDC (Base)</strong> fixed-scope manual, AI-assisted manifest import / payment-header evidence review. Example deliverable: one written reproduction, a redacted issues list, and an actionable repair suggestion using public or fictional fixtures.</p><p><strong>Now orderable as a separate fixed-scope service:</strong> the original seller's Clawlancer listing is active at 19 native Base Circle USDC. The FREE tool never charges. For bespoke work, first confirm public-fixture rights, specific scope, acceptance, timeline, cancellation/refund and the platform's payment terms. Never send any crypto to an address copied from an unsolicited message.</p><div class="actions"><a class="btn linkbtn" href="https://clawlancer.ai/marketplace/3afdccb7-ecd3-471b-b3b0-8983543cfce7" target="_blank" rel="noopener noreferrer">View fixed 19 USDC order listing ↗</a><a class="textlink" href="https://docs.google.com/forms/d/e/1FAIpQLSe_N8anCGUDmWdNZLnGwFRfhYaaCsB18BKdYd_VsFZp1xWm3g/viewform" target="_blank" rel="noopener noreferrer">Ask scope before ordering ↗</a><a class="textlink" href="mailto:onecursor1@gmail.com?subject=x402%20Manifest%20QA%20%E2%80%94%20public%20fixture%20only">Email inquiry ↗</a></div><p class="fine">Clawlancer is a separate marketplace with its own account, escrow, network and purchase requirements. Listing a price does not mean anybody purchased it or that funds reached the operator's wallet. On the optional Google inquiry form, begin your public problem description with “x402 manifest QA 19 USDC”. Google processes voluntarily entered answers separately; never send private manifests or real customer records.</p></article></section>
+
+<section class="ci" id="ci" aria-label="Use in CI and source control">
+<span class="overline">04 / REPEATABLE VALUE FOR DEVELOPERS</span>
+<h2>Catch broken x402 manifests on every pull request.</h2>
+<p class="hint">ManifestScope also runs from the command line or as a no-dependency GitHub Action. It checks a <strong>local</strong> JSON file in your repository, without contacting a facilitator, wallet or merchant. Structural errors can fail CI; a large but otherwise valid catalog only produces an informational warning.</p>
+<div class="split">
+<article><h3>Run locally</h3><pre><code>node cli.mjs .well-known/x402.json
+node cli.mjs .well-known/x402.json --json</code></pre><p class="fine">Node.js 22+. Clone the free public repository first. No npm dependencies or API key.</p></article>
+<article><h3>Use in GitHub Actions</h3><pre><code>- uses: actions/checkout@v4
+- uses: actions/setup-node@v4
+  with:
+    node-version: '22'
+- uses: livastic-vm2-primary-20260911/x402-manifest-import-preflight@v1
+  with:
+    manifest: '.well-known/x402.json'</code></pre><p class="fine">No workflow permissions beyond public repository contents read are needed. This action does not execute user manifest content.</p></article>
+</div>
+<div class="actions"><a class="textlink" href="https://github.com/livastic-vm2-primary-20260911/x402-manifest-import-preflight/blob/main/docs/ci-quickstart.md" target="_blank" rel="noopener noreferrer">Copy the complete CI workflow ↗</a><a class="textlink" href="https://github.com/livastic-vm2-primary-20260911/x402-manifest-import-preflight/issues/new?template=feedback.yml" target="_blank" rel="noopener noreferrer">Give public nonsecret developer feedback ↗</a></div>
+<p class="fine">The web page never uploads your input. The CLI/action only reads a locally selected file and prints bounded diagnostics. Public GitHub feedback requires a GitHub account; do not send private customer data or signed payment headers.</p>
+</section>
 
 <section class="notes"><h2>What caused the real 123 / 492 failure?</h2>
 <p><strong>Inspecting a single HTTP 402 payment quote instead?</strong> Try the complementary <a class="textlink" href="https://livastic-vm3-primary-tmp-260920.github.io/x402-contract-check/" target="_blank" rel="noopener noreferrer">free x402 v1/v2 Contract Reality Check ↗</a> built by the same one-owner team. It analyzes public payment headers and Bazaar input metadata; ManifestScope focuses on the full resources-array catalog and importer scale. Neither performs a payment.</p><p>One public importer prepared hundreds of individual SQL statements and issued an unbounded batch, then failed with <code>D1_ERROR: too many SQL variables</code>. The provider’s manifest itself was legitimate. The open source fix in PR #6 uses parameterized, set-based inserts and atomic replacement; it is pending maintainer review and production verification. This free tool highlights the operational scale risk, but cannot certify a particular database deployment.</p><p class="fine">This page has no analytics, ads, cookies, application server, remote API calls, blockchain wallet, or auto-payments. Structural checks are informative, not security auditing, accounting advice, financial advice, or a guarantee of profitability. AI assistance disclosed; human developer review and real payment are separately required for contracted work.</p></section>

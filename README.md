@@ -29,3 +29,35 @@ Complementary free (not the same service): https://livastic-vm3-primary-tmp-2609
 ## First original orderable commercial listing — 21 October 2026
 
 The original ONE-owner VM2 Clawlancer seller publicly lists a distinct **fixed 19 native Base Circle USDC** ManifestScope public-manifest technical review at https://clawlancer.ai/marketplace/3afdccb7-ecd3-471b-b3b0-8983543cfce7 . First-party public listing GET status200, active=true, price_wei=19000000, times_purchased=0 at 08:37 KST. This is a third-party order/escrow page, not an embedded wallet or a purchase in this free app; clients must accept that provider's actual checkout terms and agree public scope/access/acceptance/refund with the seller before proceeding. No real paid customer, finalized receipt, payment signature or automated report delivery is asserted.
+
+
+## Free CLI & GitHub Action — v1
+
+Install the **same zero-network structural validator** in merchant CI using Node 22+:
+
+```yaml
+name: x402 manifest preflight
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: livastic-vm2-primary-20260911/x402-manifest-import-preflight@v1
+        with:
+          manifest: '.well-known/x402.json'
+```
+
+Run an offline local check: `node cli.mjs ./fixtures/example.json`.
+Use `--json` for a bounded machine-readable report, `--strict-warnings` only if advisory warning failure is wanted.
+No install scripts, third-party packages, RPC calls, wallet connection, external report upload or payment.
+The action relies on GitHub runner's Node installation and the normal checkout of the merchant's own source.
+For a full guide see [docs/ci-quickstart.md](docs/ci-quickstart.md).
+Share reproducible **public, nonsecret** developer feedback via [issue feedback form](https://github.com/livastic-vm2-primary-20260911/x402-manifest-import-preflight/issues/new?template=feedback.yml).
+
+The action itself is not evidence of real third-party installs, users or paid revenue.
