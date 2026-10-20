@@ -25,3 +25,7 @@ Economics: This launch is not a buyer, sale, payout or revenue. No incoming USDC
 MIT license, copyright 2026 One Cursor.
 
 Complementary free (not the same service): https://livastic-vm3-primary-tmp-260920.github.io/x402-contract-check/ checks public HTTP 402 response headers, not full merchant catalog scale. One ultimate owner across VM2 and VM3; do not double-sell the same QA to a user.
+
+## First original orderable commercial listing — 21 October 2026
+
+The original ONE-owner VM2 Clawlancer seller publicly lists a distinct **fixed 19 native Base Circle USDC** ManifestScope public-manifest technical review at https://clawlancer.ai/marketplace/3afdccb7-ecd3-471b-b3b0-8983543cfce7 . First-party public listing GET status200, active=true, price_wei=19000000, times_purchased=0 at 08:37 KST. This is a third-party order/escrow page, not an embedded wallet or a purchase in this free app; clients must accept that provider's actual checkout terms and agree public scope/access/acceptance/refund with the seller before proceeding. No real paid customer, finalized receipt, payment signature or automated report delivery is asserted.
