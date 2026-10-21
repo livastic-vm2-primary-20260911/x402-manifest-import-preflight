@@ -48,7 +48,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - uses: livastic-vm2-primary-20260911/x402-manifest-import-preflight@v1.2.0
+      - uses: livastic-vm2-primary-20260911/x402-manifest-import-preflight@v1.3.0
         with:
           manifest: '.well-known/x402.json'
 ```
@@ -74,6 +74,34 @@ A fully synthetic/unpaid [sample 123-resource / 492-rail x402 merchant catalog Q
 
 The free browser-local tool and CLI inspect **at most 2,500 resource entries** and **the first 50 payment choices per resource**, within the 1.5 MB input limit. If any of those scan caps is exceeded, the report is explicitly **INVALID/FAIL** (not green) and asks the publisher to narrow/split their manifest; the summary's rail count still includes all declared array entries. A v1/v2 `exact` rail without an amount/asset or with a malformed (non-atomic-integer) amount is also a structural **ERROR**. Errors are listed before advisory warnings, so a truncated 200-finding display does not bury material failures. This is a local structural input check, never a proof of original merchant onchain validity or importer success.
 
+
+## ManifestScope v1.3.0 — free GitHub Action distribution
+
+**Free, MIT-licensed composite action.** The published \`v1.3.0\` tag
+contains the same local structural CLI checker. Add this snippet to an
+authorized public or private repository after ensuring Node.js 22 is available:
+
+\`\`\`yaml
+- uses: actions/checkout@v4
+- uses: actions/setup-node@v4
+  with:
+    node-version: '22'
+- uses: livastic-vm2-primary-20260911/x402-manifest-import-preflight@v1.3.0
+  with:
+    manifest: '.well-known/x402.json'
+\`\`\`
+
+It reads only the repository's selected local manifest and prints bounded
+status; no credit card, account token, RPC, wallet signature or automatic
+crypto charge. GitHub Action **does not** run the optional browser-only vendor
+HTTP POST-body metadata checker (that remains separately available for free
+on the project's public site). The license is MIT; the repository provides
+public tests, a precise security caveat and a developer feedback issue form.
+Its GitHub Marketplace listing, if approved, is **free discovery** for
+developers and is NOT itself a paid checkout, new independent customer or
+evidence of crypto revenue. For the separate optional human-reviewed public
+manifest QA, see the original 19 native Circle Base USDC Clawlancer listing
+linked above. One beneficial human owner across VM1/2/3/5.
 
 ## Optional vendor HTTP POST discovery preflight — 2026-10-21
 

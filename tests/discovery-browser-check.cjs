@@ -3,7 +3,7 @@ const fs=require('node:fs');
 const http=require('node:http');
 const path=require('node:path');
 const {chromium}=require('/srv/multi-vm-agent/workspace/make_money/work/qa-manifestscope-20261021/node_modules/playwright-core');
-const BASE='/srv/multi-vm-agent/workspace/make_money/work/vm2-x402-post-discovery-20261021';
+const BASE=path.resolve(__dirname,'..');
 const FILES=new Set(['/index.html','/app.mjs','/discovery-ui.mjs','/style.css','/lib/preflight.mjs','/lib/discovery.mjs']);
 const TYPES={'.html':'text/html; charset=utf-8','.mjs':'application/javascript; charset=utf-8','.css':'text/css; charset=utf-8'};
 const server=http.createServer((req,res)=>{

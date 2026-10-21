@@ -36,7 +36,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - uses: livastic-vm2-primary-20260911/x402-manifest-import-preflight@v1.2.0
+      - uses: livastic-vm2-primary-20260911/x402-manifest-import-preflight@v1.3.0
         with:
           manifest: '.well-known/x402.json'
           strict-warnings: 'false'
@@ -65,3 +65,6 @@ No claims of actual independent customer usage, checkout, settlement or profits 
 ## Validation caps (fail closed)
 
 To keep browser and CI checks bounded, a catalog exceeding 2,500 resources or 50 payment choices per resource reports a hard structural FAIL rather than silently passing unchecked entries. `exact` payment choices without a nonnegative atomic integer amount or without an asset also fail. Verify out-of-cap files separately and do not treat a green result as a payment/settlement/import certification.
+
+
+ManifestScope v1.3.0 retains the exact original local x402 structural CI behavior. Its separately added optional browser-side POST-body discovery report is not yet implemented in this GitHub Action and must not be represented as covered in CI. Original author: One Cursor (AI-assisted), MIT-licensed with no settled customer/order claims.
