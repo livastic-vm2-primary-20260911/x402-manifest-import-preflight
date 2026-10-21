@@ -51,3 +51,11 @@ test('HTML disables outbound requests for editor content', async()=>{
  assert.ok(html.includes('https://livastic-vm3-primary-tmp-260920.github.io/x402-contract-check/'));
  assert.ok(!html.includes('window.ethereum'));
 });
+test('CI code examples are safely scrollable on narrow screens', async()=>{
+ const fs=await import('node:fs');
+ const css=fs.readFileSync(new URL('../style.css',import.meta.url),'utf8');
+ assert.ok(css.includes('.ci .split{grid-template-columns:repeat(2,minmax(0,1fr))}'));
+ assert.ok(css.includes('.ci .split article{min-width:0}'));
+ assert.ok(css.includes('overflow-x:auto'));
+ assert.ok(css.includes('.ci .split{grid-template-columns:minmax(0,1fr)}'));
+});
