@@ -59,3 +59,12 @@ test('CI code examples are safely scrollable on narrow screens', async()=>{
  assert.ok(css.includes('overflow-x:auto'));
  assert.ok(css.includes('.ci .split{grid-template-columns:minmax(0,1fr)}'));
 });
+
+
+test('free listing reciprocal footer link is clearly labeled and does not claim Twelve Tools endorsement',async()=>{
+ const fs=await import('node:fs');
+ const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
+ assert.ok(html.includes('href="https://twelve.tools/" target="_blank" rel="noopener noreferrer">Discover tools at Twelve Tools'));
+ assert.ok(html.includes('Independent tool — not affiliated with x402 Foundation'));
+ assert.ok(!html.includes('Sponsor of ManifestScope'));
+});
