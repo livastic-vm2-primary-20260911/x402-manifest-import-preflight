@@ -61,3 +61,5 @@ For a full guide see [docs/ci-quickstart.md](docs/ci-quickstart.md).
 Share reproducible **public, nonsecret** developer feedback via [issue feedback form](https://github.com/livastic-vm2-primary-20260911/x402-manifest-import-preflight/issues/new?template=feedback.yml).
 
 The action itself is not evidence of real third-party installs, users or paid revenue.
+
+No-login feedback alternative: There is NO published anonymous Google Form for ManifestScope. The original product page instead exposes a voluntary, send-only-on-click email feedback template (no GitHub login, the sender email address is visible to the recipient) and the public GitHub Issues feedback form. Do not attach private customer data or payment signatures. Neither route creates an automatic paid order. Any incomplete Google Form owner draft is not a live lead intake channel.

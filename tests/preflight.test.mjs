@@ -68,3 +68,13 @@ test('free listing reciprocal footer link is clearly labeled and does not claim 
  assert.ok(html.includes('Independent tool — not affiliated with x402 Foundation'));
  assert.ok(!html.includes('Sponsor of ManifestScope'));
 });
+
+
+test('free non-login feedback mailto needs deliberate human send, with no form upload',async()=>{
+ const fs=await import('node:fs');
+ const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
+ assert.ok(html.includes('Send free feedback by email — no GitHub login'));
+ assert.ok(html.includes('mailto:onecursor1@gmail.com?subject=ManifestScope%20free%20x402%20feedback'));
+ assert.ok(html.includes('Your email provider and the recipient then process the message you send'));
+ assert.ok(!html.includes('1to6JIIbMzpPWx7iK2g6mE-ldStx2YvUMFs8IYfBNN5o'));
+});
