@@ -68,3 +68,8 @@ No-login feedback alternative: There is NO published anonymous Google Form for M
 ## Fictional example of a fixed-scope deliverable
 
 A fully synthetic/unpaid [sample 123-resource / 492-rail x402 merchant catalog QA note](sample-report.html) demonstrates what a bounded report could look like before anyone orders. It uses only deterministic fictionalSample() inputs plus a separately disclosed independent public D1 importer error report, clearly distinguishing structural checks from staging D1 / genuine USDC settlement tests. No real customer, signed order, wallet ownership or payout is asserted, and the sample is free even for people who never purchase anything.
+
+
+## Fail-closed structural limits
+
+The free browser-local tool and CLI inspect **at most 2,500 resource entries** and **the first 50 payment choices per resource**, within the 1.5 MB input limit. If any of those scan caps is exceeded, the report is explicitly **INVALID/FAIL** (not green) and asks the publisher to narrow/split their manifest; the summary's rail count still includes all declared array entries. A v1/v2 `exact` rail without an amount/asset or with a malformed (non-atomic-integer) amount is also a structural **ERROR**. Errors are listed before advisory warnings, so a truncated 200-finding display does not bury material failures. This is a local structural input check, never a proof of original merchant onchain validity or importer success.

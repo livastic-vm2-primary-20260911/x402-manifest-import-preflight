@@ -60,3 +60,8 @@ Optional fixed 19 native Base Circle USDC single-manifest manual technical revie
 Price shown is not evidence of a sold report or independently finalized owner wallet receipt. Buyer and operator must agree public scope, AI assistance, acceptance criteria, delivery, price and refund/cancellation terms in writing before paid work.
 
 No claims of actual independent customer usage, checkout, settlement or profits are made by publishing this CLI/Action.
+
+
+## Validation caps (fail closed)
+
+To keep browser and CI checks bounded, a catalog exceeding 2,500 resources or 50 payment choices per resource reports a hard structural FAIL rather than silently passing unchecked entries. `exact` payment choices without a nonnegative atomic integer amount or without an asset also fail. Verify out-of-cap files separately and do not treat a green result as a payment/settlement/import certification.

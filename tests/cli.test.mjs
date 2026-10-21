@@ -50,7 +50,7 @@ test('real structural defects fail CI with exit 1, no raw input in output',()=>w
 }));
 test('optional warnings become CI failures only with explicit strict flag',()=>withTemp((dir)=>{
   const input=join(dir,'warning.json');
-  writeFileSync(input,JSON.stringify({x402Version:2,resources:[{url:'https://example.org/fake',accepts:[{scheme:'exact',network:'base',payTo:'0x1234',amount:'5000'}]}]}));
+  writeFileSync(input,JSON.stringify({x402Version:2,resources:[{url:'https://example.org/fake',accepts:[{scheme:'exact',network:'base',payTo:'0x1234',asset:'0x0000000000000000000000000000000000000001',amount:'5000'}]}]}));
   assert.equal(run([input]).status,0);
   assert.equal(run([input,'--strict-warnings']).status,1);
   assert.equal(run([input],{MANIFESTSCOPE_STRICT_WARNINGS:'true'}).status,1);
