@@ -3,3 +3,6 @@
 
 /* Prevent long GitHub Action IDs from widening the entire viewport on mobile. */
 .ci .split{grid-template-columns:repeat(2,minmax(0,1fr))}.ci .split article{min-width:0}.ci pre{width:100%;max-width:100%;overflow-x:auto}@media(max-width:740px){.ci .split{grid-template-columns:minmax(0,1fr)}}
+
+/* Readable, fictional sample deliverable, responsive and no inline style CSP. */
+.sample-hero{padding-top:37px;padding-bottom:33px}.sample-hero h1{font-size:clamp(38px,5.2vw,65px)}.report-list{color:#c5cee0;font-size:15px;line-height:1.8;padding-left:24px}.report-list li{padding-left:3px;margin:0 0 12px}.report-list strong{color:#eff6ff}

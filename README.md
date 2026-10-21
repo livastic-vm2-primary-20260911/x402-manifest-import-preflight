@@ -63,3 +63,8 @@ Share reproducible **public, nonsecret** developer feedback via [issue feedback 
 The action itself is not evidence of real third-party installs, users or paid revenue.
 
 No-login feedback alternative: There is NO published anonymous Google Form for ManifestScope. The original product page instead exposes a voluntary, send-only-on-click email feedback template (no GitHub login, the sender email address is visible to the recipient) and the public GitHub Issues feedback form. Do not attach private customer data or payment signatures. Neither route creates an automatic paid order. Any incomplete Google Form owner draft is not a live lead intake channel.
+
+
+## Fictional example of a fixed-scope deliverable
+
+A fully synthetic/unpaid [sample 123-resource / 492-rail x402 merchant catalog QA note](sample-report.html) demonstrates what a bounded report could look like before anyone orders. It uses only deterministic fictionalSample() inputs plus a separately disclosed independent public D1 importer error report, clearly distinguishing structural checks from staging D1 / genuine USDC settlement tests. No real customer, signed order, wallet ownership or payout is asserted, and the sample is free even for people who never purchase anything.

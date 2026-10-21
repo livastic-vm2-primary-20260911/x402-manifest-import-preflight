@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Free fully fictional sample technical report: x402 catalog import with 123 resources, 492 payment choices, SQL D1 batch-size warning, tests and atomic replacement acceptance. No purchase required.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'none'; connect-src 'none'; script-src 'none'; form-action 'none'; frame-src 'none'; base-uri 'none'">
+<meta name="theme-color" content="#0f182a">
+<link rel="canonical" href="https://livastic-vm2-primary-20260911.github.io/x402-manifest-import-preflight/sample-report.html">
+<link rel="stylesheet" href="./style.css">
+<title>Sample QA deliverable — ManifestScope x402 catalog import | Fictional</title>
+</head>
+<body>
+<header class="topbar"><a href="./" class="brand"><span class="glyph">///</span> MANIFESTSCOPE</a><a class="textlink" href="./">← Free validator</a></header>
+<main>
+<section class="hero sample-hero">
+<div class="eyebrow">SAMPLE REPORT • SYNTHETIC • NOT A COMMISSIONED AUDIT</div>
+<h1>x402 catalog import <em>QA example</em></h1>
+<p class="lede">Exactly what a bounded technical note might look like. This example uses <strong>123 entirely fictional resources and 492 invented payment choices</strong>. It was not ordered by a customer, has no transaction evidence and is not a certification of any real merchant, token, wallet, backend or facilitator.</p>
+</section>
+
+<section class="workspace">
+<div class="headrow"><div><span class="overline">01 / FIXTURE SCOPE</span><h2>One fictional merchant catalog</h2></div><span class="safe">No wallet • no uploads • no paid calls</span></div>
+<p class="hint">Fixture source: <a class="textlink" href="https://github.com/livastic-vm2-primary-20260911/x402-manifest-import-preflight/blob/v1.1.0/lib/preflight.mjs" target="_blank" rel="noopener noreferrer">fictionalSample() in the public release ↗</a>. Every resource points to non-operating <code>example.org</code> paths; the payment recipient is a non-owned placeholder used only to test field presence. Nothing here authorizes or submits a payment.</p>
+<div class="metrics">
+ <div><span>123</span><small>Fictional resources</small></div>
+ <div><span>492</span><small>Invented accepts entries</small></div>
+ <div><span>0</span><small>Structural errors</small></div>
+ <div><span>1</span><small>Scale warning (INFO)</small></div>
+</div>
+<p class="fine">Networks in this demonstration: <code>eip155:8453</code> (Base) and <code>eip155:42161</code> (Arbitrum). Amounts and tokens are illustrative only, not verified on-chain. The structural checker is not a full x402 schema conformance or security audit.</p>
+</section>
+
+<section class="split">
+<article>
+<span class="overline">02 / EXECUTIVE DIAGNOSIS</span>
+<h2>Manifest shape looks plausible.</h2>
+<p>For the fictional fixture, each resource has an HTTPS URL and four payment-rail entries. Required structural fields are present. The local checker returned <strong>0 errors</strong> and did not reject the catalog merely because it contains hundreds of entries.</p>
+<p><strong>Interpretation:</strong> A clean structural result does <em>not</em> guarantee the registry can import the JSON, nor that payment can be settled.</p>
+</article>
+<article>
+<span class="overline">03 / OPERATIONAL RISK</span>
+<h2>Large D1 batches merit staging tests.</h2>
+<p>A distinct <a href="https://github.com/SaylorInnovations/open-x402-bazaar/issues/5" target="_blank" rel="noopener noreferrer">independent public real-world incident</a> reported <code>D1_ERROR: too many SQL variables</code> with a real 123/492 catalog. The fictional fixture here was <strong>not submitted to Cloudflare D1</strong>.</p>
+<p><strong>Interpretation:</strong> This is an importer write-path risk. It is not evidence that any vendor's public manifest contains incorrect USDC payment instructions.</p>
+</article>
+</section>
+
+<section class="workspace" aria-label="Actionable technical remediation">
+<span class="overline">04 / PROPOSED TECHNICAL WORK</span>
+<h2>Replace safely, or don't replace at all.</h2>
+<ol class="report-list">
+ <li><strong>Keep the current catalog</strong> until the replacement has passed validation and the database can atomically commit it.</li>
+ <li><strong>Use bounded, parameterized set-based writes</strong> rather than variable-length prepared insert arrays. Never concatenate raw merchant JSON into SQL syntax.</li>
+ <li><strong>Insert parent resources and rail rows consistently</strong>, checking each rail maps to the correct resource. Recompute catalog statistics in the same transaction.</li>
+ <li><strong>Rollback on constraint or write failure</strong>; verify that the existing listing and dependent records survive intact.</li>
+ <li><strong>Confirm separately</strong> the correct chain/token/recipient, facilitator compatibility, payment-header format, user authority and final settlement after import.</li>
+</ol>
+<p class="fine">See the <a class="textlink" href="https://github.com/SaylorInnovations/open-x402-bazaar/pull/6" target="_blank" rel="noopener noreferrer">unmerged proposed registry importer fix (PR #6)</a>. Local SQLite-backed regression tests cover synthetic scale, parent mapping and rollback; production Cloudflare D1 verification and maintainer approval remain outstanding.</p>
+</section>
+
+<section class="split">
+<article>
+<span class="overline">05 / ACCEPTANCE CRITERIA</span>
+<h2>Evidence expected before launch</h2>
+<ul class="report-list">
+ <li>Known-good old listing remains usable after a deliberately failing replacement.</li>
+ <li>All 123 fictional resource IDs own precisely four correct child rail rows.</li>
+ <li>Fresh import and replacement of 492 accepts entries pass against the actual configured staging D1 instance.</li>
+ <li>Validated HTTP 402 quotes and actual authorized payment-settlement outcomes are tested separately.</li>
+ <li>Every failure yields a useful error without leaking wallet or customer secrets.</li>
+</ul>
+</article>
+<article>
+<span class="overline">06 / OUT OF SCOPE</span>
+<h2>No security or income promises.</h2>
+<p>Excluded: a production integration, real customer data, wallet/key access, a security audit, a real payment, D1 production testing, token verification, financial returns, refund guarantees or reconfiguration of someone else's merchant service.</p>
+<p>This example is AI-assisted and publicly reviewable. Nothing here is a paid client testimonial or evidence of a completed commercial engagement.</p>
+</article>
+</section>
+
+<section class="notes">
+<span class="overline">07 / OPTIONAL BUYER NEXT STEP</span>
+<h2>Would a report like this solve your problem?</h2>
+<p>Start with the <a class="textlink" href="./">free local checker</a>. If a specific **public or entirely fictional** x402 catalog needs a separately agreed technical review, the original operator offers a bounded <strong>19 native Circle USDC on Base</strong> manual, AI-assisted diagnostic on an external marketplace. The buyer and operator must agree input rights, deliverables, acceptance, schedule, privacy and cancellation/refund terms first. The listing itself proves no sale or incoming USDC.</p>
+<div class="actions"><a class="btn linkbtn" href="https://clawlancer.ai/marketplace/3afdccb7-ecd3-471b-b3b0-8983543cfce7" target="_blank" rel="noopener noreferrer">Read the actual 19 USDC scope ↗</a><a class="textlink" href="mailto:onecursor1@gmail.com?subject=ManifestScope%20public%20QA%20sample%20question">Ask a public-fixture question by email ↗</a><a class="textlink" href="https://github.com/livastic-vm2-primary-20260911/x402-manifest-import-preflight/issues/new?template=feedback.yml" target="_blank" rel="noopener noreferrer">Public developer feedback ↗</a></div>
+<p class="fine">This is an unpaid demonstration generated from a fictional sample. No external buyer was charged. Do not send secrets, private company logs or actual customer financial records. Independent payment settlement can only be determined from separately verified original payee receipts.</p>
+</section>
+</main>
+<footer><span>ManifestScope · sample, 2026</span><a href="./">Free x402 validator ↗</a><span>AI-assisted demonstration, one human owner • unrelated to official x402 foundation.</span></footer>
+</body>
+</html>
