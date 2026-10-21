@@ -55,3 +55,16 @@ test('source manifest sitemap publishes both the free checker and fictional samp
  assert.ok(sitemap.includes('/x402-manifest-import-preflight/sample-report.html</loc>'));
  assert.ok(!sitemap.includes('private')&&!sitemap.includes('credentials'));
 });
+
+
+test('hero shows free evidence before optional priced buyer link, without implying a payment or real customer',()=>{
+ const site=read('index.html');
+ const hero=site.slice(site.indexOf('<section class="hero">'),site.indexOf('</section>',site.indexOf('<section class="hero">')));
+ const free=hero.indexOf('href="./sample-report.html"');
+ const paid=hero.indexOf('href="https://clawlancer.ai/marketplace/3afdccb7-ecd3-471b-b3b0-8983543cfce7"');
+ assert.ok(free>=0 && paid>free,'free sample visibly precedes optional paid link');
+ assert.ok(hero.includes('only public or fictional inputs'));
+ assert.ok(hero.includes('before payment'));
+ assert.ok(hero.includes('No wallet connection or payment occurs'));
+ assert.ok(!/verified customers|guaranteed (audit|returns|settlement)/i.test(hero));
+});

@@ -6,3 +6,9 @@
 
 /* Readable, fictional sample deliverable, responsive and no inline style CSP. */
 .sample-hero{padding-top:37px;padding-bottom:33px}.sample-hero h1{font-size:clamp(38px,5.2vw,65px)}.report-list{color:#c5cee0;font-size:15px;line-height:1.8;padding-left:24px}.report-list li{padding-left:3px;margin:0 0 12px}.report-list strong{color:#eff6ff}
+
+
+/* Surface the existing optional paid review without gating the free checker. */
+.hero-cta{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:24px 0 12px}
+.hero-note{color:#adbfd3;font-size:12px;line-height:1.75;max-width:780px;margin:0}
+@media(max-width:560px){.hero-cta{align-items:stretch;flex-direction:column}.hero-cta .btn{justify-content:center;text-align:center;width:100%}}
