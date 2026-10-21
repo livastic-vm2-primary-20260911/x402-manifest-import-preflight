@@ -42,7 +42,7 @@ test('HTML disables outbound requests for editor content', async()=>{
  assert.ok(html.includes('No server upload.'));
  assert.ok(html.includes('x402 manifest QA 19 USDC'));
  assert.ok(html.includes('https://clawlancer.ai/marketplace/3afdccb7-ecd3-471b-b3b0-8983543cfce7'));
- assert.ok(html.includes('x402-manifest-import-preflight@v1'));
+ assert.ok(html.includes('x402-manifest-import-preflight@v1.2.0'));
  assert.ok(html.includes('Give public nonsecret developer feedback'));
  assert.ok(html.includes('Copy the complete CI workflow'));
  assert.ok(html.includes('Ask scope before ordering'));

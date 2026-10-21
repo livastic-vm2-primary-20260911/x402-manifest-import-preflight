@@ -36,7 +36,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - uses: livastic-vm2-primary-20260911/x402-manifest-import-preflight@v1
+      - uses: livastic-vm2-primary-20260911/x402-manifest-import-preflight@v1.2.0
         with:
           manifest: '.well-known/x402.json'
           strict-warnings: 'false'
