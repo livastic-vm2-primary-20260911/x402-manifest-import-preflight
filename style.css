@@ -12,3 +12,15 @@
 .hero-cta{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:24px 0 12px}
 .hero-note{color:#adbfd3;font-size:12px;line-height:1.75;max-width:780px;margin:0}
 @media(max-width:560px){.hero-cta{align-items:stretch;flex-direction:column}.hero-cta .btn{justify-content:center;text-align:center;width:100%}}
+
+
+/* Optional vendor POST discovery, not the normative x402 manifest validator. */
+.discovery-examples{display:flex;gap:11px;flex-wrap:wrap;margin:14px 0 21px}
+.discovery-json{min-height:250px;border:1px solid #42526a;border-radius:8px;background:#0a1324;color:#e3f3e9;font:12px/1.7 ui-monospace,Consolas,monospace;padding:15px;max-width:100%;resize:vertical}
+.discovery-summary{background:#102c34;border:1px solid #3c6869;border-radius:7px;padding:11px;font-size:12px;color:#cfe7e5}
+#discovery-results{border-top:1px solid var(--line);margin-top:22px;padding-top:12px}
+#discovery-results h3{color:#d9f3ee;font-size:19px;line-height:1.35}
+#discovery-findings{margin:14px 0 20px;padding-left:22px;font-size:13px;line-height:1.85}
+#discovery-findings li{margin-bottom:10px;overflow-wrap:anywhere}
+#discovery-results [hidden],#discovery-error[hidden],#discovery-results[hidden]{display:none}
+@media(max-width:580px){.discovery-examples{flex-direction:column}.discovery-examples .btn{text-align:center;justify-content:center;width:100%}}

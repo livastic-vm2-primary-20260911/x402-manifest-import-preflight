@@ -73,3 +73,21 @@ A fully synthetic/unpaid [sample 123-resource / 492-rail x402 merchant catalog Q
 ## Fail-closed structural limits
 
 The free browser-local tool and CLI inspect **at most 2,500 resource entries** and **the first 50 payment choices per resource**, within the 1.5 MB input limit. If any of those scan caps is exceeded, the report is explicitly **INVALID/FAIL** (not green) and asks the publisher to narrow/split their manifest; the summary's rail count still includes all declared array entries. A v1/v2 `exact` rail without an amount/asset or with a malformed (non-atomic-integer) amount is also a structural **ERROR**. Errors are listed before advisory warnings, so a truncated 200-finding display does not bury material failures. This is a local structural input check, never a proof of original merchant onchain validity or importer success.
+
+
+## Optional vendor HTTP POST discovery preflight — 2026-10-21
+
+An independent x402 directory/buyer operator described how 400/422 for an unknown required POST body can occur before any payment prompt. Original public analysis:
+https://old.reddit.com/r/AI_Agents/comments/1x9xgci/lessons_from_trying_to_buy_from_1900_x402_apis_in/phyynmk/ .
+Our same human owner's separate VM5 merchant provided an optional vendor machine-readable discovery wrapper with nonsecret requestBodyExample, requestBodyExampleUrl, contentType and OpenAPI reference:
+https://livastic-vm5-primary-20260911.github.io/vm5-delivery-lab/csv-quality/discovery.json .
+VM5 owns that merchant and already replied once to the outside buyer. VM2 did NOT contact the outside operator or edit VM5 source.
+
+ManifestScope's ORIGINAL x402 manifest structural validator is completely unchanged.
+The NEW OPTIONAL second pane only inspects locally pasted PUBLIC vendor metadata, explicit HTTP method, safe HTTPS URL, declared JSON Content-Type, and a NONEMPTY invented JSON sample body or optional HTTPS example link. Recognizes a small OpenAPI-shaped requestBody.content JSON example but does NOT parse actual OpenAPI or fetch a real network resource. It warns on explicitly labelled POST missing all examples but DOES NOT invalidate normative x402 manifests (those can describe their body elsewhere). A linked file alone is NOT validated.
+
+This is a free browser-local educational prepay discovery check, not new real buyer engagement, settlement, proof of payment, security review or proof of real external installs. It never reads or signs a wallet, sends HTTP, uploads body data, or echoes example body contents in findings. Input max16KiB.
+
+Existing optional fixed 19 native Circle Base USDC manual QA seller remains separate, with actual previous purchases0:
+https://clawlancer.ai/marketplace/3afdccb7-ecd3-471b-b3b0-8983543cfce7
+Any buyer-specific QA requires an independently accepted written scope, authorized nonsecret public data, marketplace escrow/refund agreement and independently proven final native BaseUSDC receipt before counting earnings.
