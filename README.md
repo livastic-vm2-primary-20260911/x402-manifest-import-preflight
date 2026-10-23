@@ -75,6 +75,8 @@ A fully synthetic/unpaid [sample 123-resource / 492-rail x402 merchant catalog Q
 The free browser-local tool and CLI inspect **at most 2,500 resource entries** and **the first 50 payment choices per resource**, within the 1.5 MB input limit. If any of those scan caps is exceeded, the report is explicitly **INVALID/FAIL** (not green) and asks the publisher to narrow/split their manifest; the summary's rail count still includes all declared array entries. A v1/v2 `exact` rail without an amount/asset or with a malformed (non-atomic-integer) amount is also a structural **ERROR**. Errors are listed before advisory warnings, so a truncated 200-finding display does not bury material failures. This is a local structural input check, never a proof of original merchant onchain validity or importer success.
 
 
+**Independent community directory entry:** [ManifestScope is listed in the x402-dev Developer Tools catalog](https://github.com/michielpost/x402-dev/blob/master/Projects.md) via [original maintainer-merged PR #213](https://github.com/michielpost/x402-dev/pull/213), merged 2026-10-23 17:56:48 UTC. This is an accurate external listing, **not** a certification, endorsement, verified adoption, paid customer, order or crypto payout. A separate optional 19 native Circle Base USDC manual QA listing remains unpurchased unless a genuine independent buyer selects and pays.
+
 ## ManifestScope v1.3.0 — free GitHub Action distribution
 
 **Free, MIT-licensed composite action.** The published \`v1.3.0\` tag
